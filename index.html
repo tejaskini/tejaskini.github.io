@@ -43,23 +43,41 @@ canvas{
 header{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   padding:20px 10%;
   position:fixed;
   width:100%;
   backdrop-filter:blur(15px);
+  z-index:1000;
 }
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
 nav a{
-  margin-left:20px;
   text-decoration:none;
   color:var(--text);
   font-weight:500;
 }
-.toggle{
+
+.theme-toggle{
+  position:absolute;
+  right:5%;
+  top:20px;
   cursor:pointer;
-  padding:5px 15px;
-  border-radius:20px;
-  background:#38bdf8;
-  color:black;
+  font-size:20px;
+  background:var(--glass);
+  padding:8px 12px;
+  border-radius:50%;
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+}
+
+.theme-toggle:hover{
+  transform:scale(1.1);
 }
 section{
   padding:120px 10%;
@@ -122,7 +140,7 @@ footer{
 <canvas id="particles"></canvas>
 
 <header>
-  <h2>Tejas</h2>
+  <h2>Tejas Kini</h2>
   <div>
     <nav>
       <a href="#about">About</a>
@@ -130,33 +148,35 @@ footer{
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
-    <span class="toggle" onclick="toggleMode()">Toggle</span>
+   <div class="theme-toggle" onclick="toggleMode()">
+  <span id="theme-icon">🌙</span>
+</div>
   </div>
 </header>
 
 <section class="hero">
-  <h1>Hello I'm Tejas Kini</h1>
+  <h1>Hello Visitors... Site will be updated soon! - Tejas Kini</h1>
   <div class="typing"></div>
-  <img src="your-photo.jpg">
+  <img src="PROF_IMG.png" alt="Tejas Kini">
 </section>
 
 <section id="about" class="glass" data-aos="fade-up">
   <h2>About Me</h2>
-  <p>Rust Backend Developer with 5+ months experience building APIs, CRON jobs, Telegram alert systems and MongoDB integrations.</p>
+  <p>Comming Soon...</p>
 </section>
 
 <section id="skills" class="glass skills" data-aos="fade-up">
   <h2>Skills</h2>
   <div class="bar">
-    <span>Rust</span>
+    <span>Comming soon...</span>
     <div class="progress"><div data-width="90%"></div></div>
   </div>
   <div class="bar">
-    <span>MongoDB</span>
+    <span>Comming soon...</span>
     <div class="progress"><div data-width="85%"></div></div>
   </div>
   <div class="bar">
-    <span>React</span>
+    <span>Comming soon...</span>
     <div class="progress"><div data-width="70%"></div></div>
   </div>
 </section>
@@ -164,24 +184,25 @@ footer{
 <section id="projects" class="glass projects" data-aos="fade-up">
   <h2>Projects</h2>
 
-  <h3>Rust TODO App</h3>
-  <img src="project1.jpg">
+  <h3>Work in progress....</h3>
+  <!-- <img src="project1.jpg">
   <p>Actix Web + MongoDB backend with React frontend.</p>
   <a href="#">Live Demo</a> |
-  <a href="https://github.com/yourusername/todo">Source Code</a>
+  <a href="https://github.com/yourusername/todo">Source Code</a> -->
 
   <br><br>
-
+<!-- 
   <h3>Telegram Alert System</h3>
   <img src="project2.jpg">
   <p>Automated panic detection system with CRON scheduler.</p>
-  <a href="https://github.com/yourusername/alert">Source Code</a>
+  <a href="https://github.com/yourusername/alert">Source Code</a> -->
 
 </section>
 
 <section id="contact" class="glass" data-aos="fade-up">
   <h2>Contact</h2>
-  <p>Email: tejaskini35@gmail.com</p>
+  <!-- <p>https://in.linkedin.com/in/tejas-kini-86172421b</p> -->
+  <!-- <p>Email: tejaskini35@gmail.com</p> -->
   <p>GitHub: github.com/tejaskini</p>
 </section>
 
@@ -195,7 +216,7 @@ footer{
 
 <script>
 // Typing Animation
-const text = ["Rust Backend Developer","MongoDB Specialist","React Learner"];
+const text = ["Rust Backend Developer","MongoDB Specialist","React Developer, and more..."];
 let i=0,j=0,current="",isDeleting=false;
 function type(){
   current=text[i];
@@ -220,6 +241,14 @@ window.addEventListener("scroll",()=>{
 // Dark Light Toggle
 function toggleMode(){
   document.body.classList.toggle("light");
+
+  const icon = document.getElementById("theme-icon");
+
+  if(document.body.classList.contains("light")){
+    icon.textContent = "☀";
+  } else {
+    icon.textContent = "🌙";
+  }
 }
 
 // Simple Particles
